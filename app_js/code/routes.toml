@@ -1,0 +1,23 @@
+[info]
+name = "Simple Template"
+version = "0.0.1"
+description = "Simple Python Service Template"
+repository = "https://github.com/mellemahp/python_app_template"
+authors = ["Hunter Mellema <mellemahp@gmail.com>"]
+license = "MIT/Apache-2.0"
+
+[[routes]]
+    [[routes.hello]]
+        description = "Base Route for the application"
+        route = "/"
+        methods = ["GET"]
+        auth = ["NONE"] 
+        handler = "views.hello"
+
+
+    [[routes.hiya]]
+        description = "Second route for the application"
+        route = "/test"
+        methods = ["GET"]
+        auth = ["NONE"]
+        handler = "views.hiya"

@@ -16,7 +16,7 @@ The idea for how to build this comes primarily from the following two sources (t
 I also pulled some of the code directly from another one of my projects that I did with : 
 - https://github.com/mellemahp/neuroscopes
 
-I really prefer having yaml to define my routes. This is just a personal preference and it does not conform to any standard. I just think it's nicer to have things in yaml. 
+I really prefer having toml to define my routes. This is just a personal preference and it does not conform to any apu spec standard. 
 
 Each repo also comes with a simply python command line tool for building, testing, etc. 
 
