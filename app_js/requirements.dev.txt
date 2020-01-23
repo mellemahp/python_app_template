@@ -1,5 +1,4 @@
 uwsgi
-flask
 bottle
 jinja2
 toml
