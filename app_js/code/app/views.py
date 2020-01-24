@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """/app/views.py
 Description: Defines the primary application views for the application
-Project: Python App jinja2_template
+Project: Python App Template
 Author: Hunter Mellema
 Date: 1/20/2020
 """

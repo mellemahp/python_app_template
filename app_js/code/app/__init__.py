@@ -16,6 +16,7 @@ import toml
 # local imports 
 from config import config_dict
 from . import views
+from .auth import auth_wrapper
 
 #=== End Imports ===# 
 
@@ -63,7 +64,7 @@ def add_routes(app, cfg):
             path=c['route'], 
             name=route, 
             method=c['methods'], 
-            callback=getattr(globals()[module], fxn)
+            callback=auth_wrapper(getattr(globals()[module], fxn), c['auth'])
         )
 
     
