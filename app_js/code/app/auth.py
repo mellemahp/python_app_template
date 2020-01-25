@@ -37,6 +37,11 @@ def auth_wrapper(fxn, scopes, *args):
         correct role to access a page. 
 
     """
+    if "NONE" in scopes: 
+        if len(scopes) > 1: 
+            raise Exception("If NONE is in scopes, no other scopes are permitted")
+        return fxn(*args)
+        
     def wrapper(*args):
         sess_status, sess_data = validate_session()
         if SessionStatus.VALID == sess_status: 
