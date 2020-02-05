@@ -40,7 +40,9 @@ def auth_wrapper(fxn, scopes, *args):
     if "NONE" in scopes: 
         if len(scopes) > 1: 
             raise Exception("If NONE is in scopes, no other scopes are permitted")
-        return fxn(*args)
+        def fxn_return(*args):
+            return fxn(*args)
+        return fxn_return
         
     def wrapper(*args):
         sess_status, sess_data = validate_session()
