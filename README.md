@@ -21,7 +21,7 @@ While I was inspired mostly by flask projects I decided to implement this using 
 I also chose to use uwsgi. Why? Well, it's simple, highly configurable, production capable, and a fairly fast relative to some of the other options like cherrypy (probably because uwsgi is not pure python). It's no Bjoern, but I'd rather have something that I can easily configure for a production environment than pure speed. I would probably throw this all behind an Nginx proxy if I were to deploy it on a server (*I may add a docker-compose file to demonstrate that*)
 
 
-I really prefer having toml to define my routes. This is just a personal preference and it does not conform to any apu spec standard. 
+I really prefer having toml to define my routes. This is just a personal preference and it does not conform to any api spec standard like OpenApi. 
 
 Each repo also comes with a simply python command line tool for building, testing, etc. 
 
