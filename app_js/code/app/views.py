@@ -6,15 +6,17 @@ Project: Python App Template
 Author: Hunter Mellema
 Date: 1/20/2020
 """
-#=== Start imports ===# 
-# third party imports 
+# === Start imports ===#
+# third party imports
 from bottle import jinja2_template
 
-#=== End Imports ===# 
+# === End Imports ===#
 
 
 def hello():
-    return jinja2_template('hello.html')
+    return jinja2_template("hello.html")
 
-def hiya(): 
-    return jinja2_template('hiya.html')
+
+def hiya():
+    return jinja2_template("hiya.html")
+
