@@ -8,7 +8,7 @@ Two separate styles of build are provided:
 Dockerfiles for both are provided that allow a user to run an auto-updating development server
 
 ## Introduction
-The idea for how to build this comes primarily from the following two sources (thanks!): 
+The idea for how to build this comes primarily from the following few sources (thanks!): 
 - https://www.robnagler.com/2015/08/24/Dispatch-Do-not-Decorate.html 
 - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 - https://github.com/mattupstate/overholt
