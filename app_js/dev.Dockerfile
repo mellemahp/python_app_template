@@ -20,6 +20,5 @@ COPY ./code/ /app/
 WORKDIR /app/
 
 EXPOSE 80
-RUN chmod +x deploy.sh
 
 ENTRYPOINT ["watchmedo", "auto-restart", "-d", "/app", "-R", "--", "uwsgi", "--ini", "/app/wsgi.ini"]

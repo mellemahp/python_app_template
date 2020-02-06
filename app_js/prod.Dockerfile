@@ -21,4 +21,4 @@ WORKDIR /app/
 
 EXPOSE 80
 
-ENTRYPOINT ["deploy.sh"]
+ENTRYPOINT ["uwsgi", "--ini", "/app/wsgi.ini"]
