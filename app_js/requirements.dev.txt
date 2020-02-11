@@ -2,4 +2,7 @@ uwsgi
 bottle
 jinja2
 toml
+# required for auto restarts
+argh
+PyYAML>=3.10
 watchdog

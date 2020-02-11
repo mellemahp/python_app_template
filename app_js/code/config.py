@@ -8,7 +8,6 @@ Author: Hunter Mellema
 Date: 1/20/2020
 """
 BaseConfig = {
-    "blerg": 1,
     "ROUTES_FILE": "routes.toml",
     "TEMPLATE_PATH": "./app/templates/",
 }

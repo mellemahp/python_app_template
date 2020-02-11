@@ -37,7 +37,7 @@ main() {
             docker build -t ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT} -f dev.Dockerfile .
             echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Starting ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}${NC} on ${RED}8080${NC}"
             echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] ${RED}AutoRestart Enabled${NC}"
-            docker run -it --rm -p 8080:80 ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}
+            docker run -it --rm -v $(pwd)/code/app:/app/app -v $(pwd)/code/client:/app/client -p 8080:80 ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}
         ;; 
 
         -p|--production)
