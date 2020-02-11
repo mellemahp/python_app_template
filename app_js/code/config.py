@@ -8,29 +8,22 @@ Author: Hunter Mellema
 Date: 1/20/2020
 """
 BaseConfig = {
-    "blerg": 1, 
-    "ROUTES_FILE": 'routes.toml', 
-    "TEMPLATE_PATH": './app/templates/'
+    "blerg": 1,
+    "ROUTES_FILE": "routes.toml",
+    "TEMPLATE_PATH": "./app/templates/",
 }
 DevConfig, TestConfig, ProdConfig = (BaseConfig.copy() for i in range(3))
 
-DevConfig.update({
-    "DEBUG": True 
-})
-    
-TestConfig.update({
-    "DEBUG": False,
-    "TESTING": True
-})
+DevConfig.update({"DEBUG": True})
 
-ProdConfig.update({ 
-    "DEBUG": False
-})
+TestConfig.update({"DEBUG": False, "TESTING": True})
+
+ProdConfig.update({"DEBUG": False})
 
 
-config_dict = { 
-    'dev': DevConfig,
-    'test': TestConfig,
-    'prod': ProdConfig,
-    'default': DevConfig
+config_dict = {
+    "dev": DevConfig,
+    "test": TestConfig,
+    "prod": ProdConfig,
+    "default": DevConfig,
 }

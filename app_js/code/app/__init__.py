@@ -6,21 +6,22 @@ Project: Python App Template
 Author: Hunter Mellema
 Date: 1/20/2020
 """
-#=== Start imports ===# 
+# === Start imports ===#
 
 # third party
 import bottle
 from bottle import Bottle
 import toml
 
-# local imports 
+# local imports
 from config import config_dict
 from . import views
 from .auth import auth_wrapper
 
-#=== End Imports ===# 
+# === End Imports ===#
 
-def build_app(mode): 
+
+def build_app(mode):
     """ Builds a new app instance with specified configuration
 
     Args: 
@@ -34,8 +35,8 @@ def build_app(mode):
     app.debug = app.config["DEBUG"]
     bottle.TEMPLATE_PATH.insert(0, app.config["TEMPLATE_PATH"])
 
-    # load toml route configuration file 
-    with open(app.config['ROUTES_FILE']) as f: 
+    # load toml route configuration file
+    with open(app.config["ROUTES_FILE"]) as f:
         cfg = toml.load(f)
 
     # add all pages and routes
@@ -57,14 +58,13 @@ def add_routes(app, cfg):
         Edits application in place
 
     """
-    for route in cfg['routes'][0]:
-        c = cfg['routes'][0][route][0]
-        module, fxn = c['handler'].split(".")
+    for route in cfg["routes"][0]:
+        c = cfg["routes"][0][route][0]
+        module, fxn = c["handler"].split(".")
         app.route(
-            path=c['route'], 
-            name=route, 
-            method=c['methods'], 
-            callback=auth_wrapper(getattr(globals()[module], fxn), c['auth'])
+            path=c["route"],
+            name=route,
+            method=c["methods"],
+            callback=auth_wrapper(getattr(globals()[module], fxn), c["auth"]),
         )
 
-    

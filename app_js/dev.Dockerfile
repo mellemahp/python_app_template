@@ -21,4 +21,4 @@ WORKDIR /app/
 
 EXPOSE 80
 
-ENTRYPOINT ["uwsgi", "--ini", "/app/wsgi.ini"]
+ENTRYPOINT ["watchmedo", "auto-restart", "-d", "/app", "-R", "--", "uwsgi", "--ini", "/app/wsgi.ini"]
