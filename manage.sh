@@ -34,26 +34,13 @@ main() {
     case $action in 
         -d|--development)
             echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Building new docker image ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}${NC}"
-            docker build -t ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT} -f dev.Dockerfile .
-            echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Starting ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}${NC} on ${RED}8080${NC}"
+            docker build -t ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT} -f Dockerfile .
+            echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Starting ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}${NC} on ${RED}${PYTHON_PORT}${NC}"
             echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] ${RED}AutoRestart Enabled${NC}"
-            docker run -it --rm -v $(pwd)/code/app:/app/app -v $(pwd)/code/client:/app/client -p 8080:80 ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}
+            docker run -it --rm -v $(pwd)/code/app:/app/app -p ${PYTHON_PORT}:80 ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}
         ;; 
 
         -p|--production)
-        ;;
-
-        -t|--test)
-            echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Building new docker image ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-test:${CURRENT_COMMIT}${NC}"
-            # check that production docker image exists
-            echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Re-building production image ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-prod:${CURRENT_COMMIT}${NC}"
-            docker build -t ${PROJECT_NAME}-${PROJECT_VERSION}-prod:${CURRENT_COMMIT} -f prod.Dockerfile .
-
-            echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Building new test docker image ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-test:${CURRENT_COMMIT}${NC}"
-            docker build -t ${PROJECT_NAME}-${PROJECT_VERSION}-test:${CURRENT_COMMIT} --build-arg PROD_CONTAINER=${PROJECT_NAME}-${PROJECT_VERSION}-prod:${CURRENT_COMMIT} -f test.Dockerfile .
-
-            echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Running Tests in ${RED}${PROJECT_NAME}-${PROJECT_VERSION}-test:${CURRENT_COMMIT}${NC}"
-            docker run ${PROJECT_NAME}-${PROJECT_VERSION}-test:${CURRENT_COMMIT}
         ;;
 
         "") 

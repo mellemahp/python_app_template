@@ -8,8 +8,7 @@ RUN apk add --update --no-cache \
     musl-dev \
     linux-headers \
     python3 \
-    python3-dev \
-    npm
+    python3-dev
 
 WORKDIR /app/
 
@@ -19,17 +18,14 @@ RUN chmod +x auto_restart.sh
 
 # Install all python dependencies
 COPY requirements.dev.txt .
+RUN pip3 install --upgrade pip
 RUN pip3 install --no-cache-dir -r requirements.dev.txt && \
     rm requirements.dev.txt
-
-# Install all javascript dependencies
-COPY package.json webpack.config.js /app/
-RUN npm install
 
 # Copy all the base code of the python application to container
 COPY ./code/ /app/ 
 
-ENV PYTHON_PORT=5000 NODE_ENV=dev
+ENV PYTHON_PORT=5000
 
 EXPOSE 80
 

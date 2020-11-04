@@ -1,4 +1,0 @@
-toml
-bottle
-jinja2
-uwsgi 
